@@ -1,5 +1,6 @@
-import "../registry/ENS.sol";
-import "./IBaseRegistrar.sol";
+// ignore ENS.sol, IBaseRegistrar.sol
+// import "../registry/ENS.sol";
+// import "./IBaseRegistrar.sol";
 import "@openzeppelin/contracts/token/ERC721/IERC721.sol";
 
 interface IBaseRegistrar is IERC721 {
