@@ -64,6 +64,19 @@ const config: HardhatUserConfig = {
       tags: ['test', 'legacy', 'use_root'],
       chainId: 5,
       accounts: real_accounts,
+      saveDeployments: true,
+      gas: 2100000,
+      gasPrice: 8000000000,
+    },
+    sepolia: {
+      url: `https://sepolia.infura.io/v3/${process.env.INFURA_API_KEY}`,
+      tags: ['test', 'legacy', 'use_root'],
+      chainId: 11155111,
+      accounts: real_accounts,
+      saveDeployments: true,
+      // gasPrice: 50000000000000,
+      gas: 210000000,
+      gasPrice: 8000000000,
     },
     mainnet: {
       url: `https://mainnet.infura.io/v3/${process.env.INFURA_API_KEY}`,
@@ -71,6 +84,11 @@ const config: HardhatUserConfig = {
       chainId: 1,
       accounts: real_accounts,
     },
+  },
+  verify: {
+    etherscan: {
+      apiKey: `${process.env.ETHERSCAN_API_KEY}`
+    }
   },
   mocha: {},
   solidity: {

@@ -14,7 +14,7 @@ async function main() {
   const signers = await ethers.getSigners();
   const accounts = signers.map(s => s.address)
 
-  // const ensAddr = '0x14b885Fab57F4119F36A0C0E258D238518690dec'
+  // const ensAddr = '0xcdf0caD9452d83ca3BDb03fd4e26275F2E712E43'
   // const registry = await ethers.getContractAt('ENSRegistry', ensAddr)
   // const resolverLabel = labelhash("testeth");
   // const ttt = await registry.resolver(resolverLabel)
@@ -41,26 +41,28 @@ async function main() {
 
 
 
-  const ethRegistrarControllerAddr = '0x4E1Ca943150383e859B7bD1EEdD8d6fae93137b3' // 0xaF45df6eE7482Efea1CF7b947DF71E1394B0c7De //'0xf6fAF4d30AFd934E3C5b1ad666f6EF6A20CbD0Cc'
+  const ethRegistrarControllerAddr = '0x949cfa4105e21854f4a0563f5bFeCb4b42a4d963' // 0xaF45df6eE7482Efea1CF7b947DF71E1394B0c7De //'0xf6fAF4d30AFd934E3C5b1ad666f6EF6A20CbD0Cc'
   const ethRegistrarController = await ethers.getContractAt('ETHRegistrarController', ethRegistrarControllerAddr)
   console.log("ETHRegistrarController address = ", ethRegistrarController.address)
 
-  const owner = "0x091a90a64A79542Ca48732F1D15cc57e58d41da0"
-  const resolver = "0x5A46b8789d59Cc1665E86bBc61F1005d38BDcB68"
+  const owner = "0xFa6BF2782C3F815AeE67a7D8Dd11516d43bD0660"
+  const resolver = "0x3b9151C81E1Faa8d942B9eC45317B60b55352c4b"
   const DAY = 24 * 60 * 60
-  const REGISTRATION_TIME = 28 * DAY
+  const REGISTRATION_TIME = 365 * DAY
   const secret = '0x0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF0123456789ABCDEF'
+  const subName = 'testdaodid'
+  const subDomain = 'test.eth'
 
   // check register is valid
-  // const valid = await ethRegistrarController.valid(tld)
+  // const valid = await ethRegistrarController.valid(subName)
   // console.log("valid = ", valid)
-  // const price = await ethRegistrarController.rentPrice(tld, REGISTRATION_TIME)
+  // const price = await ethRegistrarController.rentPrice(subName, REGISTRATION_TIME)
   // console.log("price = ", price)
-  // const available = await ethRegistrarController.available(tld)
+  // const available = await ethRegistrarController.available(subName)
   // console.log("available = ", available)
   // if (valid == true && available == true) {
   //   const tx = await ethRegistrarController.makeCommitment(
-  //       'testdao',
+  //       subName,
   //       owner,
   //       REGISTRATION_TIME,
   //       secret,
@@ -76,7 +78,7 @@ async function main() {
   
   // test register
   // var tx3 = await ethRegistrarController.register(
-  //   'testdao',
+  //   subName,
   //   owner,
   //   REGISTRATION_TIME,
   //   secret,
@@ -85,7 +87,7 @@ async function main() {
   //   false,
   //   0,
   //   {
-  //     value: ethers.utils.parseEther("0.8")
+  //     value: ethers.utils.parseEther("0.5")
   //   },
   // )
   // console.log("result = ", tx3)
@@ -115,12 +117,18 @@ async function main() {
   // console.log('reverseRegistrarResult :', reverseRegistrarResult);
   // 重新注册 ETHRegistrarController
 
-  const ensAddr = '0x14b885Fab57F4119F36A0C0E258D238518690dec'
-  const registry = await ethers.getContractAt('ENSRegistry', ensAddr)
-  const testethAddr = await registry.owner(namehash.hash('testdao.dao'))
-  console.log('testdao own is:', testethAddr);
-  const testethResolverAddr = await registry.resolver(namehash.hash('testdao.dao'))
-  console.log('testdao Resolver address is:', testethResolverAddr);
+  // const ensAddr = '0xcdf0caD9452d83ca3BDb03fd4e26275F2E712E43'
+  // const registry = await ethers.getContractAt('ENSRegistry', ensAddr)
+  // const testethAddr = await registry.owner(namehash.hash('testdaodid.eth'))
+  // console.log('test.eth own is:', testethAddr);
+  // const testethResolverAddr = await registry.resolver(namehash.hash('testdaodid.eth'))
+  // console.log('test.eth Resolver address is:', testethResolverAddr);
+
+  // transfer subdomain
+  // const nameWrapperAddr = '0x216127941e7D5A64D5D17Af5bA6b6a92c1911E7D'
+  // const nameWrapper = await ethers.getContractAt('NameWrapper', nameWrapperAddr)
+  // const tx = await nameWrapper.unwrapETH2LD(labelhash('testdaodid'), owner, owner)
+  // console.log('transfer subdomain : ', tx)
 };
 
 async function setupResolver(ens, resolver, accounts) {

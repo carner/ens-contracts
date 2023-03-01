@@ -1,6 +1,6 @@
 {
-  "name": "@ensdomains/ens-contracts",
-  "version": "0.0.13",
+  "name": "@daodomains/ens-contracts",
+  "version": "0.0.14",
   "description": "ENS contracts",
   "scripts": {
     "test": "hardhat test",
@@ -35,7 +35,7 @@
     "envfile": "^6.17.0",
     "ethereum-waffle": "^3.3.0",
     "ethers": "^5.6.1",
-    "hardhat": "^2.9.9",
+    "hardhat": "^2.12.2",
     "hardhat-abi-exporter": "^2.9.0",
     "hardhat-contract-sizer": "^2.6.1",
     "hardhat-deploy": "^0.11.10",
@@ -61,12 +61,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ensdomains/ens-contracts.git"
+    "url": "git+https://github.com/carner/ens-contracts.git"
   },
   "author": "",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ensdomains/ens-contracts/issues"
+    "url": "https://github.com/carner/ens-contracts/issues"
   },
-  "homepage": "https://github.com/ensdomains/ens-contracts#readme"
+  "homepage": "https://github.com/carner/ens-contracts#readme"
 }

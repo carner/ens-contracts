@@ -1,3 +1,6 @@
+// SPDX-License-Identifier: GPL-3.0
+pragma solidity >=0.8.4;
+
 // ignore ENS.sol, IBaseRegistrar.sol
 // import "../registry/ENS.sol";
 // import "./IBaseRegistrar.sol";
