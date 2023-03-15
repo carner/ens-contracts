@@ -1,9 +1,7 @@
 //SPDX-License-Identifier: MIT
-pragma solidity ~0.8.17;
+pragma solidity >=0.8.4;
 
-import "./IMetadataService.sol";
-
-contract StaticMetadataService is IMetadataService {
+contract StaticMetadataService {
     string private _uri;
 
     constructor(string memory _metaDataUri) {

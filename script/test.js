@@ -129,6 +129,15 @@ async function main() {
   // const nameWrapper = await ethers.getContractAt('NameWrapper', nameWrapperAddr)
   // const tx = await nameWrapper.unwrapETH2LD(labelhash('testdaodid'), owner, owner)
   // console.log('transfer subdomain : ', tx)
+
+  const ensAddr = '0x8E5b3A32Cf8eb64590380364bA56b88BA643eb55'
+  const registry = await ethers.getContractAt('ENSRegistry', ensAddr)
+  console.log('ENSRegistry address:', registry.address);
+  const tx = await registry.owner(namehash.hash("sdfeee.eth"))
+  console.log('sdfeee address:', tx);
+  const tx1 = await registry.resolver(namehash.hash("sdfeee.eth"))
+  console.log('sdfeee resolver:', tx1);
+  // resolver
 };
 
 async function setupResolver(ens, resolver, accounts) {
